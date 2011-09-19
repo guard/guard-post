@@ -13,8 +13,18 @@ guard init post
 
 This just tells you when a file has changed.  You can use this for blogging with [post-modern](https://github.com/viatropos/post-modern), which just reads a Markdown file with a YAML header (like in Jekyll), and syntax highlights the content (and executes inline Haml so you can use Haml in markdown for things like tables).  Here's an example:
 
+### Guardfile
+
 ``` ruby
-# app/models/post
+guard "post", :update => lambda { |file| Post.save_from_file!(file) } do
+  watch(%r{^app/documents/(.+\.md)})
+end
+```
+
+### Example Model
+
+``` ruby
+# app/models/post.rb
 class Post
   include Mongoid::Document
   
@@ -34,11 +44,6 @@ class Post
 
     post
   end
-end
-
-# Guardfile
-guard "post", :update => lambda { |file| Post.save_from_file!(file) } do
-  watch(%r{^app/documents/(.+\.md)})
 end
 ```
 
