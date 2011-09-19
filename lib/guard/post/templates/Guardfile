@@ -1,0 +1,3 @@
+guard 'post', :update => lambda { |file| Post.save_from_file!(file) } do
+  watch(%r{^app/documents/(.+\.md)})
+end
