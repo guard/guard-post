@@ -16,6 +16,7 @@ This just tells you when a file has changed.  You can use this for blogging with
 ### Guardfile
 
 ``` ruby
+# :update => callback, :rails => true|false (loads current development rails env if so)
 guard "post", :update => lambda { |file| Post.save_from_file!(file) } do
   watch(%r{^app/documents/(.+\.md)})
 end
