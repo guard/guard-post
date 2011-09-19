@@ -8,7 +8,7 @@ module ::Guard
       super
       @options = {
         :all_on_start => true,
-        :rails        => true
+        :rails        => false
       }.update(options)
     end
     
