@@ -1,5 +1,7 @@
 # GuardPost
 
+> Watch Static Files, Convert them to Database Records (Mongoid, ActiveRecord, etc.).
+
 ## Install
 
 ``` bash
